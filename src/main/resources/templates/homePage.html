@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>MainPage</title>
+</head>
+<body>
+<div th:switch="${movies}">
+    <h2 th:case="null">No users yet!</h2>
+    <div th:case="*">
+        <h2>Movies</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Release date</th>
+                <th>Country</th>
+                <th>Producer</th>
+                <th>Genre</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="movie : ${movies}">
+                <td th:text="${movie.id}"></td>
+                <td th:text="${movie.title}"></td>
+                <td th:text="${movie.releaseDate}"></td>
+                <td th:text="${movie.country}"></td>
+                <td th:text="${movie.producer}"></td>
+                <td th:text="${movie.genre}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<div class="peckar-manual-block"></div>
+</body>
+</html>
